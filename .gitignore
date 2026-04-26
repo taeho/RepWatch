@@ -1,0 +1,16 @@
+# Xcode
+*.xcuserstate
+xcuserdata/
+**/*.xcworkspace/xcuserdata/
+DerivedData/
+*.moved-aside
+*.hmap
+*.ipa
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# macOS
+.DS_Store
+*.swp
