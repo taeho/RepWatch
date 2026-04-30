@@ -38,8 +38,9 @@ struct SetupSummaryView: View {
 
             // 운동 시작 버튼
             NavigationLink("시작") {
-                // Phase 3에서 WorkoutView로 연결 예정
-                Text("운동 화면 준비 중")
+                WorkoutView(
+                    viewModel: WorkoutViewModel(config: viewModel.config)
+                )
             }
             .buttonStyle(.borderedProminent)
             .tint(.green)
