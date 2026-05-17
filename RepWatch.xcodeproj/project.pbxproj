@@ -39,9 +39,22 @@
 		1A7D464F2F9E16D40037E789 /* RepWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RepWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1A7D46C32FBA04350037E789 /* Exceptions for "RepWatch Watch App" folder in "RepWatch Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"RepWatch-Watch-App-Info.plist",
+			);
+			target = 1A7D464E2F9E16D40037E789 /* RepWatch Watch App */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		1A7D46532F9E16D40037E789 /* RepWatch Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1A7D46C32FBA04350037E789 /* Exceptions for "RepWatch Watch App" folder in "RepWatch Watch App" target */,
+			);
 			path = "RepWatch Watch App";
 			sourceTree = "<group>";
 		};
@@ -248,6 +261,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				NEW_SETTING = "";
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -303,6 +317,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				NEW_SETTING = "";
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -316,7 +331,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RepWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = RepWatch;
+				INFOPLIST_KEY_NSMotionUsageDescription = "\"운동 동작을 감지하여 자동으로 횟수를 카운팅합니다\"";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -348,7 +365,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RepWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = RepWatch;
+				INFOPLIST_KEY_NSMotionUsageDescription = "\"운동 동작을 감지하여 자동으로 횟수를 카운팅합니다\"";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -52,6 +52,14 @@ struct WorkoutView: View {
                 Text(viewModel.config.bodyPart.displayName)
                     .font(.caption2)
                     .foregroundStyle(.tertiary)
+                
+                // WorkoutView.swift body 안 VStack 하단에 추가
+
+                // 디버그: 가속도 수치 표시 (튜닝 후 제거)
+                Text(String(format: "%.2f g", viewModel.currentMagnitude))
+                    .font(.system(size: 10))
+                    .foregroundStyle(.tertiary)
+                    .monospacedDigit()
             }
         }
         .navigationTitle("")
