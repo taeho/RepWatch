@@ -34,7 +34,7 @@ struct SetupRepsView: View {
             .frame(height: 80)
 
             NavigationLink("다음") {
-                SetupRestCountView(viewModel: viewModel)
+                SetupRestCountView(viewModel: viewModel, navigationPath: $navigationPath)
             }
             .buttonStyle(.borderedProminent)
             .frame(maxWidth: .infinity)

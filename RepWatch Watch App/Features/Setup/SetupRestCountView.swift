@@ -51,7 +51,7 @@ struct SetupRestCountView: View {
             // 휴식 있으면 → 휴식시간 설정, 없으면 → 바로 요약
             NavigationLink("다음") {
                 if viewModel.config.restCount > 0 {
-                    SetupRestDurationView(viewModel: viewModel)
+                    SetupRestDurationView(viewModel: viewModel, navigationPath: $navigationPath)
                 } else {
                     SetupSummaryView(viewModel: viewModel, navigationPath: $navigationPath)
                 }
