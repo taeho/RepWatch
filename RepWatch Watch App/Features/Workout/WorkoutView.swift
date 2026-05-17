@@ -16,6 +16,7 @@ struct WorkoutView: View {
     // MARK: - Properties
 
     @Bindable var viewModel: WorkoutViewModel
+    @Binding var navigationPath: NavigationPath  // 추가
 
     // MARK: - Body
 
@@ -72,7 +73,8 @@ struct WorkoutView: View {
         .navigationDestination(isPresented: $viewModel.goToComplete) {
             CompleteView(
                 config: viewModel.config,
-                actualReps: viewModel.actualReps
+                actualReps: viewModel.actualReps,
+                navigationPath: $navigationPath  // 전달
             )
         }
     }

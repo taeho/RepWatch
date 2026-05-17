@@ -11,18 +11,15 @@
 import SwiftUI
 
 struct SetupSummaryView: View {
+    @Bindable var viewModel: SetupViewModel
+    @Binding var navigationPath: NavigationPath  // 추가
 
-    // MARK: - Properties
-
-    var viewModel: SetupViewModel
-    @State private var navigateToWorkout = false
-
-    // MARK: - Body
+    private var totalReps: Int {
+        viewModel.config.totalSets * viewModel.config.targetReps
+    }
 
     var body: some View {
         VStack(spacing: 6) {
-
-            // 설정 요약 표시
             VStack(alignment: .leading, spacing: 4) {
                 SummaryRow(label: "부위", value: viewModel.config.bodyPart.displayName)
                 SummaryRow(label: "세트", value: "\(viewModel.config.totalSets) 세트")
@@ -36,10 +33,10 @@ struct SetupSummaryView: View {
             }
             .padding(.bottom, 4)
 
-            // 운동 시작 버튼
             NavigationLink("시작") {
                 WorkoutView(
-                    viewModel: WorkoutViewModel(config: viewModel.config)
+                    viewModel: WorkoutViewModel(config: viewModel.config),
+                    navigationPath: $navigationPath
                 )
             }
             .buttonStyle(.borderedProminent)
@@ -51,7 +48,6 @@ struct SetupSummaryView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 }
-
 // MARK: - SummaryRow (재사용 컴포넌트)
 
 private struct SummaryRow: View {

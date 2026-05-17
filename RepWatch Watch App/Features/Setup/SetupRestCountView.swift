@@ -16,6 +16,8 @@ struct SetupRestCountView: View {
     // MARK: - Properties
 
     @Bindable var viewModel: SetupViewModel
+    @Binding var navigationPath: NavigationPath  // 추가
+
 
     // 최대 휴식 횟수 = 세트 수 - 1
     private var maxRestCount: Int {
@@ -51,7 +53,7 @@ struct SetupRestCountView: View {
                 if viewModel.config.restCount > 0 {
                     SetupRestDurationView(viewModel: viewModel)
                 } else {
-                    SetupSummaryView(viewModel: viewModel)
+                    SetupSummaryView(viewModel: viewModel, navigationPath: $navigationPath)
                 }
             }
             .buttonStyle(.borderedProminent)

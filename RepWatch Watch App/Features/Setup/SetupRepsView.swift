@@ -15,6 +15,7 @@ struct SetupRepsView: View {
     // MARK: - Properties
 
     @Bindable var viewModel: SetupViewModel
+    @Binding var navigationPath: NavigationPath  // ← 이거 추가됐는지 확인
 
     // MARK: - Body
 

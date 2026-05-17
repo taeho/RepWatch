@@ -16,6 +16,7 @@ struct SetupSetsView: View {
     // MARK: - Properties
 
     @Bindable var viewModel: SetupViewModel
+    @Binding var navigationPath: NavigationPath  // 프로퍼티 추가
 
     // MARK: - Body
 
@@ -35,7 +36,7 @@ struct SetupSetsView: View {
             .frame(height: 80)
 
             NavigationLink("다음") {
-                SetupRepsView(viewModel: viewModel)
+                SetupRepsView(viewModel: viewModel, navigationPath: $navigationPath)
             }
             .buttonStyle(.borderedProminent)
             .frame(maxWidth: .infinity)

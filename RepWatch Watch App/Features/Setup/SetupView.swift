@@ -14,6 +14,7 @@ struct SetupView: View {
     // MARK: - Properties
 
     @State private var viewModel = SetupViewModel()
+    @Binding var navigationPath: NavigationPath  // 추가
 
     // MARK: - Body
 
@@ -25,7 +26,7 @@ struct SetupView: View {
 
             // 상체 버튼
             NavigationLink {
-                SetupSetsView(viewModel: viewModel)
+                SetupSetsView(viewModel: viewModel, navigationPath: $navigationPath)
             } label: {
                 Label("상체", systemImage: "figure.strengthtraining.traditional")
                     .frame(maxWidth: .infinity)
@@ -38,7 +39,7 @@ struct SetupView: View {
 
             // 하체 버튼
             NavigationLink {
-                SetupSetsView(viewModel: viewModel)
+                SetupSetsView(viewModel: viewModel, navigationPath: $navigationPath)
             } label: {
                 Label("하체", systemImage: "figure.leg.press")
                     .frame(maxWidth: .infinity)

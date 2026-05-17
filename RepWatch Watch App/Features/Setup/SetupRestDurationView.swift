@@ -16,6 +16,7 @@ struct SetupRestDurationView: View {
     // MARK: - Properties
 
     @Bindable var viewModel: SetupViewModel
+    @Binding var navigationPath: NavigationPath  // 추가
 
     // MARK: - Body
 
@@ -34,7 +35,7 @@ struct SetupRestDurationView: View {
             .frame(height: 80)
 
             NavigationLink("다음") {
-                SetupSummaryView(viewModel: viewModel)
+                SetupSummaryView(viewModel: viewModel, navigationPath: $navigationPath)
             }
             .buttonStyle(.borderedProminent)
             .frame(maxWidth: .infinity)
