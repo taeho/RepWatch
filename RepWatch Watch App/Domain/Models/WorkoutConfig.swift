@@ -10,7 +10,8 @@
 import Foundation
 
 // 운동 부위
-enum BodyPart: String, CaseIterable {
+// Hashable: NavigationPath에 값을 넣으려면 필수
+enum BodyPart: String, CaseIterable, Hashable {
     case upper = "upper"
     case lower = "lower"
 
@@ -22,11 +23,10 @@ enum BodyPart: String, CaseIterable {
     }
 }
 
-// 운동 시작 전 설정값 묶음
-struct WorkoutConfig {
+struct WorkoutConfig: Hashable {
     var bodyPart: BodyPart = .upper
-    var totalSets: Int = 3         // 전체 세트 수
-    var targetReps: Int = 12       // 세트당 목표 횟수
-    var restCount: Int = 2         // 휴식 횟수 (0 = 휴식 없음)
-    var restDuration: Int = 60     // 휴식 시간 (초)
+    var totalSets: Int = 3
+    var targetReps: Int = 12
+    var restCount: Int = 2
+    var restDuration: Int = 60
 }

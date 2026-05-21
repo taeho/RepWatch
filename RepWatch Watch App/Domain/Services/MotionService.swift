@@ -35,7 +35,7 @@ class MotionService {
     // MARK: - 튜닝 파라미터 (실기기 테스트 후 조정)
     // ⚙️ threshold: 낮을수록 민감 (오감지↑), 높을수록 둔감 (미감지↑)
     // ⚙️ debounceInterval: 렙 사이 최소 간격 - 너무 짧으면 1동작에 2카운트
-    var threshold: Double = 0.8          // 렙 감지 임계값 (g 단위²)
+    var threshold: Double = 0.6          // 렙 감지 임계값 (g 단위²)
     var debounceInterval: Double = 0.8   // 렙 사이 최소 간격 (초)
 
     // MARK: - Private

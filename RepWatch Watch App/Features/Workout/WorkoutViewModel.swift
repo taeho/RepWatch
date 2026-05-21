@@ -83,4 +83,12 @@ class WorkoutViewModel {
             }
         }
     }
+    
+    // MARK: - 운동 완전 종료 (홈으로 복귀 시)
+    func stopWorkout() {
+        isWorkoutActive = false
+        motionService.stopCounting()
+        goToComplete = false
+        goToRest = false
+    }
 }
