@@ -27,7 +27,8 @@ struct SetupRepsView: View {
 
             Picker("횟수", selection: $viewModel.config.targetReps) {
                 ForEach(1...30, id: \.self) { n in
-                    Text("\(n) 회").tag(n)
+                    //Text("\(n) 회").tag(n)
+                    Text("\(n) \(String(localized: "회"))").tag(n)
                 }
             }
             .pickerStyle(.wheel)

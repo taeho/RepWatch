@@ -23,13 +23,19 @@ struct SetupSummaryView: View {
 
             VStack(alignment: .leading, spacing: 4) {
                 SummaryRow(label: "부위", value: viewModel.config.bodyPart.displayName)
-                SummaryRow(label: "세트", value: "\(viewModel.config.totalSets) 세트")
-                SummaryRow(label: "횟수", value: "\(viewModel.config.targetReps) 회")
                 SummaryRow(
-                    label: "휴식",
+                    label: String(localized: "세트"),
+                    value: "\(viewModel.config.totalSets) \(String(localized: "세트"))"
+                )
+                SummaryRow(
+                    label: String(localized: "목표"),
+                    value: "\(viewModel.config.targetReps) \(String(localized: "회"))"
+                )
+                SummaryRow(
+                    label: String(localized: "휴식 횟수"),
                     value: viewModel.config.restCount == 0
-                        ? "없음"
-                        : "\(viewModel.config.restCount)회 / \(viewModel.config.restDuration)초"
+                        ? String(localized: "없음")
+                        : "\(viewModel.config.restCount)\(String(localized: "회")) / \(viewModel.config.restDuration)\(String(localized: "초"))"
                 )
             }
             .padding(.bottom, 4)

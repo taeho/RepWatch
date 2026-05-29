@@ -65,7 +65,8 @@ struct WorkoutView: View {
                 }
 
             VStack(spacing: 6) {
-                Text("\(viewModel.currentSet) / \(viewModel.config.totalSets) 세트")
+                //Text("\(viewModel.currentSet) / \(viewModel.config.totalSets) 세트")
+                Text("\(viewModel.currentSet) / \(viewModel.config.totalSets) \(String(localized: "세트"))")
                     .font(.caption)
                     .foregroundStyle(.secondary)
 
@@ -75,7 +76,8 @@ struct WorkoutView: View {
                     .contentTransition(.numericText())
                     .animation(.snappy, value: viewModel.currentReps)
 
-                Text("목표 \(viewModel.config.targetReps) 회")
+                //Text("목표 \(viewModel.config.targetReps) 회")
+                Text("\(String(localized: "목표")) \(viewModel.config.targetReps) \(String(localized: "회"))")
                     .font(.caption2)
                     .foregroundStyle(.secondary)
 

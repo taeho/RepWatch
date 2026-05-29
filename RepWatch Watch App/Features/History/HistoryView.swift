@@ -136,12 +136,20 @@ struct HistoryDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    // MARK: - 날짜 전체 포맷
-
+    // MARK: - 이 함수가 HistoryDetailView 안에 있어야 함
     private func formattedFullDate(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy.MM.dd HH:mm"
-        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.locale = Locale.current  // 기기 언어 자동 반영
+        return formatter.string(from: date)
+    }
+    
+    // MARK: - 날짜 전체 포맷
+
+    private func formattedDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM.dd (E)"
+        formatter.locale = Locale.current  // 고정값 제거 → 기기 설정 자동 반영
         return formatter.string(from: date)
     }
 }

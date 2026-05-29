@@ -17,8 +17,8 @@ enum BodyPart: String, CaseIterable, Hashable {
 
     var displayName: String {
         switch self {
-        case .upper: return "상체"
-        case .lower: return "하체"
+        case .upper: return String(localized: "상체")
+        case .lower: return String(localized: "하체")
         }
     }
 }
