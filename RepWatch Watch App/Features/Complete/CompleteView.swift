@@ -13,11 +13,9 @@ import SwiftData
 
 struct CompleteView: View {
 
-    // MARK: - Properties
-
     let config: WorkoutConfig
     let actualReps: [Int]
-    let onGoHome: () -> Void          // 추가 (navigationPath, dismiss 전부 제거)
+    let onGoHome: () -> Void
 
     @Environment(\.modelContext) private var modelContext
     @State private var isSaved: Bool = false
@@ -25,8 +23,6 @@ struct CompleteView: View {
     private var totalReps: Int {
         actualReps.reduce(0, +)
     }
-
-    // MARK: - Body
 
     var body: some View {
         ScrollView {
@@ -45,11 +41,13 @@ struct CompleteView: View {
                 VStack(alignment: .leading, spacing: 4) {
                     ForEach(Array(actualReps.enumerated()), id: \.offset) { index, reps in
                         HStack {
-                            Text("\(index + 1) 세트")
+                            // ✅ 수정
+                            Text("\(index + 1) \(String(localized: "세트"))")
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                             Spacer()
-                            Text("\(reps) 회")
+                            // ✅ 수정
+                            Text("\(reps) \(String(localized: "회"))")
                                 .font(.caption)
                                 .fontWeight(.medium)
                                 .foregroundStyle(
@@ -66,7 +64,8 @@ struct CompleteView: View {
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     Spacer()
-                    Text("\(totalReps) 회")
+                    // ✅ 수정
+                    Text("\(totalReps) \(String(localized: "회"))")
                         .font(.caption)
                         .fontWeight(.bold)
                 }
@@ -77,7 +76,6 @@ struct CompleteView: View {
                         .foregroundStyle(.secondary)
                 }
 
-                // 클로저 호출로 교체
                 Button {
                     onGoHome()
                 } label: {

@@ -21,8 +21,8 @@ struct SetupSummaryView: View {
     var body: some View {
         VStack(spacing: 6) {
 
-            VStack(alignment: .leading, spacing: 4) {
-                SummaryRow(label: "부위", value: viewModel.config.bodyPart.displayName)
+            VStack(alignment: .leading, spacing: 4) { 
+                SummaryRow(label: String(localized: "부위"), value: viewModel.config.bodyPart.displayName)
                 SummaryRow(
                     label: String(localized: "세트"),
                     value: "\(viewModel.config.totalSets) \(String(localized: "세트"))"

@@ -37,15 +37,17 @@ class HistoryViewModel {
     func formattedDate(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM.dd (E)"
-        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.locale = Locale.current  // ← 기기 설정 따름
         return formatter.string(from: date)
     }
 
     // MARK: - 운동 요약 텍스트
-
+    // 수정
     func summaryText(_ record: WorkoutRecord) -> String {
-        let bodyPart = record.bodyPart == "upper" ? "상체" : "하체"
+        let bodyPart = record.bodyPart == "upper"
+            ? String(localized: "상체")
+            : String(localized: "하체")
         let totalReps = record.actualReps.reduce(0, +)
-        return "\(bodyPart) · \(record.completedSets)세트 · \(totalReps)회"
+        return "\(bodyPart) · \(record.completedSets)\(String(localized: "세트")) · \(totalReps)\(String(localized: "회"))"
     }
 }
