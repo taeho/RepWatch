@@ -58,37 +58,76 @@ struct WorkoutView: View {
 
     private var workoutContent: some View {
         ZStack {
-            Color.clear
-                .contentShape(Rectangle())
-                .onTapGesture(count: 2) {
-                    viewModel.addRep()
-                }
+            // 하체일 때만 전체 더블탭 제거
+            // 상체는 혹시 센서 미감지 시 더블탭 보조
+            if viewModel.config.bodyPart == .upper {
+                Color.clear
+                    .contentShape(Rectangle())
+                    .onTapGesture(count: 2) {
+                        viewModel.addRep()
+                    }
+            }
 
             VStack(spacing: 6) {
-                //Text("\(viewModel.currentSet) / \(viewModel.config.totalSets) 세트")
+
+                // 세트 진행 표시
                 Text("\(viewModel.currentSet) / \(viewModel.config.totalSets) \(String(localized: "세트"))")
                     .font(.caption)
                     .foregroundStyle(.secondary)
 
-                Text("\(viewModel.currentReps)")
-                    .font(.system(size: 64, weight: .bold, design: .rounded))
-                    .foregroundStyle(repColor)
-                    .contentTransition(.numericText())
-                    .animation(.snappy, value: viewModel.currentReps)
+                // 하체 vs 상체 카운터 UI 분기
+                if viewModel.config.bodyPart == .lower {
+                    // 하체: 탭 버튼으로 수동 카운팅
+                    Button {
+                        viewModel.addRep()
+                    } label: {
+                        ZStack {
+                            // 원형 테두리
+                            Circle()
+                                .stroke(repColor, lineWidth: 4)
+                                .frame(width: 90, height: 90)
 
-                //Text("목표 \(viewModel.config.targetReps) 회")
+                            // 카운트 숫자
+                            Text("\(viewModel.currentReps)")
+                                .font(.system(size: 52, weight: .bold, design: .rounded))
+                                .foregroundStyle(repColor)
+                                .contentTransition(.numericText())
+                                .animation(.snappy, value: viewModel.currentReps)
+                        }
+                    }
+                    .buttonStyle(.plain)
+
+                    // 탭 안내 문구
+                    Text("탭하여 카운트")
+                        .font(.system(size: 10))
+                        .foregroundStyle(.tertiary)
+
+                } else {
+                    // 상체: 센서 자동 카운팅
+                    Text("\(viewModel.currentReps)")
+                        .font(.system(size: 64, weight: .bold, design: .rounded))
+                        .foregroundStyle(repColor)
+                        .contentTransition(.numericText())
+                        .animation(.snappy, value: viewModel.currentReps)
+                }
+
+                // 목표 횟수
                 Text("\(String(localized: "목표")) \(viewModel.config.targetReps) \(String(localized: "회"))")
                     .font(.caption2)
                     .foregroundStyle(.secondary)
 
+                // 부위 표시
                 Text(viewModel.config.bodyPart.displayName)
                     .font(.caption2)
                     .foregroundStyle(.tertiary)
 
-                Text(String(format: "%.2f g", viewModel.currentMagnitude))
-                    .font(.system(size: 10))
-                    .foregroundStyle(.tertiary)
-                    .monospacedDigit()
+                // 디버그 수치 (튜닝 후 제거)
+                if viewModel.config.bodyPart == .upper {
+                    Text(String(format: "%.2f g", viewModel.currentMagnitude))
+                        .font(.system(size: 10))
+                        .foregroundStyle(.tertiary)
+                        .monospacedDigit()
+                }
             }
         }
     }
