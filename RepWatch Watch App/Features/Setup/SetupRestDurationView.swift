@@ -26,7 +26,7 @@ struct SetupRestDurationView: View {
             Text("휴식 시간")
                 .font(.headline)
 
-            Picker("휴식 시간", selection: $viewModel.config.restDuration) {
+            Picker("", selection: $viewModel.config.restDuration) {
                 ForEach(1...180, id: \.self) { n in
                     //Text("\(n) 초").tag(n)
                     Text("\(n) \(String(localized: "초"))").tag(n)

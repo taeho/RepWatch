@@ -25,7 +25,7 @@ struct SetupRepsView: View {
             Text("세트당 횟수")
                 .font(.headline)
 
-            Picker("횟수", selection: $viewModel.config.targetReps) {
+            Picker("", selection: $viewModel.config.targetReps) {
                 ForEach(1...30, id: \.self) { n in
                     //Text("\(n) 회").tag(n)
                     Text("\(n) \(String(localized: "회"))").tag(n)

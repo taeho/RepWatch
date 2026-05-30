@@ -27,7 +27,7 @@ struct SetupSetsView: View {
                 .font(.headline)
 
             // Digital Crown 연동 피커
-            Picker("세트 수", selection: $viewModel.config.totalSets) {
+            Picker("", selection: $viewModel.config.totalSets) {
                 ForEach(1...10, id: \.self) { n in
                     //Text("\(n) 세트").tag(n)
                     Text("\(n) \(String(localized: "세트"))").tag(n)

@@ -33,7 +33,7 @@ struct SetupRestCountView: View {
                 .font(.headline)
 
             // 0이면 "없음" 으로 표시
-            Picker("휴식 횟수", selection: $viewModel.config.restCount) {
+            Picker("", selection: $viewModel.config.restCount) {
                 Text("없음").tag(0)
                 ForEach(1...max(1, maxRestCount), id: \.self) { n in 
                     Text("\(n) \(String(localized: "회"))").tag(n)
